@@ -22,41 +22,40 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(express.static('public'));
 
 const Task = mongoose.model('Task', {
-    jiraItem: {
-      jiraID: String,
-      jiraName: String,
-      jiraType: String,
-      priority: String,
-      status: String,
-      specialFields: {
-        jiraParentId: String,
-        functionalTest: Boolean,
-        qaRepresentative: String,
-        fixVersion: String
-      }
-    },
-    qcItem: {
-      requirmentId: String,
-      creationTime: {
-        type: Date
-      },
-      requirmentType: String,
-      status: String
-    },
-    diffItem: {
-      type: { type: String },
-      updatedTime: Date,
-      updatedFields: String,
-      fieldName:String,
+  jiraItem: {
+    jiraId: String,
+    jiraName: String,
+    jiraType: String,
+    priority: String,
+    status: String,
+    specialFields: {
+      jiraParentId: String,
+      functionalTest: Boolean,
+      qaRepresentative: String,
+      fixVersion: String
+    }
+  },
+  qcItem: {
+    requirmentId: String,
+    requirementId: String,
+    requirementType: String,
+    status: String
+  },
+  diffItem: {
+    type: { type: String },
+    updatedTime: Number,
+    updatedFields: [
+      {fieldName: String,
       oldVal: String,
-      newVal: String
-    },
-   /* taskItem: {
-      user: User,
-      isDone: Boolean,
-      updatedTime: Date
-    }*/
-  });
+      newVal: String}]    
+  }
+  // taskItem: {
+  //   user: User,
+  //   isDone: Boolean,
+  //   updatedTime: Date,
+  //   createdTime: Date
+  // }
+});
 
 
 

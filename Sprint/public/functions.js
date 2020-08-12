@@ -1,10 +1,10 @@
 let table=document.getElementById('selectedData')
 
-const getTasks= new Promise((resolve, reject) => {
+/*const getTasks= new Promise((resolve, reject) => {
     fetch('/Tickets')
         .then(res => res.json())
         .then(task => resolve(task))
-  });
+  });*/
 
 (async()=>{
     const tasks= await getTasks;
