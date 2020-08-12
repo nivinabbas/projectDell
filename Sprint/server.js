@@ -57,8 +57,6 @@ const Task = mongoose.model('Task', {
   // }
 });
 
-
-
   app.get('/Tickets', (req, res) => {
     res.send(Task)
 })
