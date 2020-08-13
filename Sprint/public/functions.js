@@ -4,15 +4,10 @@ let table=document.getElementById('selectedData')
     fetch('/Tickets')
         .then(res => res.json())
         .then(task => resolve(task))
-  });*/
+  });
 
 (async()=>{
     const tasks= await getTasks;
-    /*let row=table.insertRow();*/
-   /* let cell=row.insertCell();
-    let cell1=row.insertCell();
-    let cell2=row.insertCell();*/
-    let taskList = "";
     tasks.forEach(item => {
         let row=table.insertRow();
         let cell=row.insertCell();
@@ -25,6 +20,6 @@ let table=document.getElementById('selectedData')
     
 });
    
-/*document.getElementById("selectedData").innerHTML = namesList;*/
+/*document.getElementById("selectedData").innerHTML = namesList;
     
-})();
+})();*/

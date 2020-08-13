@@ -37,17 +37,15 @@ const Task = mongoose.model('Task', {
   },
   qcItem: {
     requirmentId: String,
-    requirementId: String,
     requirementType: String,
     status: String
   },
   diffItem: {
     type: { type: String },
-    updatedTime: Number,
-    updatedFields: [
-      {fieldName: String,
-      oldVal: String,
-      newVal: String}]    
+    updateTime: Number,
+    updatedFields: [{fieldName: String,
+      oldValue: String,
+      newValue: String}]    
   }
   // taskItem: {
   //   user: User,
@@ -57,8 +55,12 @@ const Task = mongoose.model('Task', {
   // }
 });
 
+
+
   app.get('/Tickets', (req, res) => {
-    res.send(Task)
+    /*Task.find({},function(err,tasks){
+      res.send(tasks)
+  })*/
 })
 
   app.listen(3000 , ()=> {
