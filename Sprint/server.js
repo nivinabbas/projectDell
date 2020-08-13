@@ -56,12 +56,39 @@ const Task = mongoose.model('Task', {
 });
 
 
-
   app.get('/Tickets', (req, res) => {
-    Task.find({},function(err,tasks){
+    Task.find({} , function(err,tasks){
       res.send(tasks)
   })
 })
+
+app.get('/getUpdatedByStatus', async (req, res) => {
+  // const { status } = req.query;*/
+   const tasks = await Task.aggregate(
+       [{
+           $match: {
+               "diffItem.updatedFields": { "$elemMatch": { 'fieldName': 'status' }},
+              /*diffItem.updatedFields": { "$elemMatch": { ${oldOrNew} }: status },*/
+           }
+       },
+       {
+           $group: {
+               // label: {`daily`},
+               _id:{},
+               tasks: {
+                   $push: {
+                       jiraItem: "$jiraItem",
+                       qcItem: "$qcItem",
+                       diffItem: "$diffItem"
+                   }
+               }
+           }
+       },
+       ]
+   )
+   console.log(tasks)
+   res.send(tasks)
+} )
 
   app.listen(3000 , ()=> {
     console.log("Port is running in 3000")

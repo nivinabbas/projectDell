@@ -17,13 +17,14 @@
            </select>
                <!-- <button type="submit"> submit</button> -->
            </form>
-<form onsubmit="handleData(event)" class="form-list"> 
-         <select id="status" name="status">
-             <option name="in-progrees">In progrees</option>
+        <form onsubmit="getData(event)" class="form-list"> 
+         <select  id="status" name="status">
+             <option name="in-progrees"">In progrees</option>
              <option name="BackLog">BackLog</option>
              <option name="done">Done</option>
         </select>
-            <!-- <button type="submit"> submit</button> -->
+
+         <button type="submit"> submit</button> 
         </form>
     
     
@@ -38,6 +39,7 @@
         </tr>
 
     </table>
+    
 
 
    <script src="functions.js"></script>
