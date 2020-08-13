@@ -58,9 +58,9 @@ const Task = mongoose.model('Task', {
 
 
   app.get('/Tickets', (req, res) => {
-    /*Task.find({},function(err,tasks){
+    Task.find({},function(err,tasks){
       res.send(tasks)
-  })*/
+  })
 })
 
   app.listen(3000 , ()=> {

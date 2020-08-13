@@ -1,6 +1,6 @@
 let table=document.getElementById('selectedData')
 
-/*const getTasks= new Promise((resolve, reject) => {
+const getTasks= new Promise((resolve, reject) => {
     fetch('/Tickets')
         .then(res => res.json())
         .then(task => resolve(task))
@@ -13,13 +13,12 @@ let table=document.getElementById('selectedData')
         let cell=row.insertCell();
         let cell1=row.insertCell();
         let cell2=row.insertCell();
-       cell.innerHTML=`${item.id}`
-       cell1.innerHTML=`${item.name}`
-       cell2.innerHTML=`${item.oldvalue}`
-       
+       cell.innerHTML=`${item.jiraItem.jiraId}`
+       cell1.innerHTML=`${item.jiraItem.jiraName}`
+       cell2.innerHTML=`${item.diffItem.updatedFields.newValue}`
+       console.log(item.diffItem.updatedFields)
     
 });
    
-/*document.getElementById("selectedData").innerHTML = namesList;
     
-})();*/
+})();
