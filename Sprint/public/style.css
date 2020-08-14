@@ -1,6 +1,6 @@
 body {
   background-color: #f2f2f2;
-  margin: auto;
+  /* margin: auto; */
 }
 .form-list {
   position: absolute;
@@ -15,13 +15,13 @@ body {
 #selectedData {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 50%;
+  width: 100%;
 
-  top: 20%;
-  left: 25%;
-  margin-top: 10px;
+  /* top: 20%;
+    left: 25%; */
+  /* margin-top: 10px; */
   padding: 10px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 #selectedData td,
@@ -68,7 +68,7 @@ body {
 .filtersContainer {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .inputSelect {
@@ -76,7 +76,8 @@ body {
   border: #e8e8e8 solid;
   border-radius: 8px;
   padding: 8px;
-  margin: 8px;
+  margin-right: 8px;
+  outline: none;
 }
 
 .filtersButton {
@@ -84,23 +85,34 @@ body {
   border: #e8e8e8 solid;
   border-radius: 8px;
   padding: 8px;
-  margin: 8px;
+  outline: none;
+  cursor: pointer;
 }
 
 .tableContainer {
-  margin: 8px;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  margin-top: 8px;
 }
 
 .cardContainer {
   background-color: white;
+  min-width: 490px;
+  border-radius: 8px;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 34px 1px rgba(200, 200, 200, 1);
+  -moz-box-shadow: 0px 0px 34px 1px rgba(200, 200, 200, 1);
+  box-shadow: 0px 0px 34px 1px rgba(200, 200, 200, 1);
+}
+.cardBody {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
+  padding: 8px;
+}
 
-  -webkit-box-shadow: 10px 10px 5px -2px rgba(219, 216, 219, 1);
-  -moz-box-shadow: 10px 10px 5px -2px rgba(219, 216, 219, 1);
-  box-shadow: 10px 10px 5px -2px rgba(219, 216, 219, 1);
+.container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
 }
