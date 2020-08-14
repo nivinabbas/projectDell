@@ -15,17 +15,23 @@
             <div class="cardBody">
 
                 <form onsubmit="getData(event)" class="filtersContainer">
-                    <select id="status" name="status" class="inputSelect">
-                        <option name="in-progrees">New-value</option>
-                        <option name="BackLog">Old-Value</option>
+                    <select id="status" name="oldOrnew" class="inputSelect">
+                        <option value="none" selected disabled hidden> 
+                            Old or New:
+                        </option> 
+                        <option name="newValue" value="newValue">newValue</option>
+                        <option name="oldValue" value="oldValue">oldValue</option>
 
                     </select>
-                    <select id="status" name="status" class="inputSelect" >
-                        <option name="in-progrees"">In progrees</option>
-                 <option name=" BackLog">BackLog</option>
-                        <option name="done">Done</option>
+                    <select id="status" name="statusOfValue" class="inputSelect" >
+                        <option value="none" selected disabled hidden> 
+                            Choose a status:
+                        </option> 
+                        <option name="in-progress"">In Progress</option>
+                        <option name=" Backlog">Backlog</option>
+                        <option name="Done">Done</option>
                     </select>
-                     <button class="filtersButton" type="submit"> submit</button> 
+                      <button class="filtersButton" type="submit"> submit</button> 
                 </form>
                 <div class="tableContainer">
                     <table id="selectedData">
