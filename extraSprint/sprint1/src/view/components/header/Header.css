@@ -1,0 +1,27 @@
+.Wrapper {
+  display: grid;
+  grid-template-columns:10vw 80vw 10vw;
+  grid-template-rows: 10vh 80vh 10vh;
+  grid-template-areas: 
+  " header header header"
+  "  . table . "
+  " footer footer footer "
+  ;
+
+}
+
+#headerTitle{
+  grid-area: header;
+  background-color: steelblue;
+  box-shadow: 8px 8px 8px grey;
+}
+
+#tablee{
+  grid-area: table;
+  margin-left: 15vw;
+  text-align: center;
+  font-size: 60px;
+  
+
+}
+
