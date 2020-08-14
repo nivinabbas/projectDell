@@ -6,12 +6,14 @@ const elmtTable = document.getElementById("selectedData");
         .then(task => resolve(task))
   });*/
 
+  
+
 function getData(event) {
   event.preventDefault();
   elmtTable.innerHTML = `<tr>
    <td class="title">TaskId</td>
    <td class="title">Date&time</td>
-   <td class="title">New value</td>
+   <td class="title">Value</td>
   
 </tr>`;
   fetch("/getUpdatedByStatus")

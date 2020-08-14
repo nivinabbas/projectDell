@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Analytics-changes of tickets</title>
 </head>
 
 <body>
@@ -20,20 +20,20 @@
                         <option name="BackLog">Old-Value</option>
 
                     </select>
-                    <select id="status" name="status" class="inputSelect">
+                    <select id="status" name="status" class="inputSelect" >
                         <option name="in-progrees"">In progrees</option>
                  <option name=" BackLog">BackLog</option>
                         <option name="done">Done</option>
                     </select>
-                    <button class="filtersButton" type="submit"> submit</button>
+                     <button class="filtersButton" type="submit"> submit</button> 
                 </form>
                 <div class="tableContainer">
                     <table id="selectedData">
 
                         <tr>
-                            <td class="title">Task ID</td>
+                            <!-- <td class="title">Task ID</td>
                             <td class="title">Date and time</td>
-                            <td class="title">New value</td>
+                            <td class="title">New value</td> -->
 
                         </tr>
 
@@ -68,13 +68,29 @@
 </head>
 
 <body>
-
-
-    <form onsubmit="handleData(event)" class="values-list">
-        <select id="status" name="status">
-            <option name="in-progrees">New-value</option>
-            <option name="BackLog">Old-Value</option>
-            <p>Hii</p>
+ 
+        
+        <!-- <form onsubmit="handleData(event)" class="values-list"> 
+            <select id="status" name="status">
+                <option name="in-progrees">New-value</option>
+                <option name="BackLog">Old-Value</option>
+                <p>Hii</p>
+           </select> -->
+               <!-- <button type="submit"> submit</button> -->
+       <!-- /*    </form>
+        <form onsubmit="getData(event)" class="form-list"> 
+            <select id="status" name="oldOrnew">
+                <option name="in-progrees">New-value</option>
+                <option name="BackLog">Old-Value</option>
+                <p>Hii</p>
+           </select>
+         <select  id="status" name="status">
+            <option value="none" selected disabled hidden> 
+                Select a status:
+            </option> 
+             <option name="in-progrees">In progrees</option>
+             <option name="BackLog">BackLog</option>
+             <option name="done">Done</option>
         </select>
         <button type="submit"> submit</button>
     </form>
