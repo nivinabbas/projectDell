@@ -1,48 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
- 
-        
-        <form onsubmit="handleData(event)" class="values-list"> 
-            <select id="status" name="status">
-                <option name="in-progrees">New-value</option>
-                <option name="BackLog">Old-Value</option>
-                <p>Hii</p>
-           </select>
-               <!-- <button type="submit"> submit</button> -->
-           </form>
-        <form onsubmit="getData(event)" class="form-list"> 
-         <select  id="status" name="status">
-             <option name="in-progrees"">In progrees</option>
-             <option name="BackLog">BackLog</option>
-             <option name="done">Done</option>
+
+
+    <form onsubmit="handleData(event)" class="values-list">
+        <select id="status" name="status">
+            <option name="in-progrees">New-value</option>
+            <option name="BackLog">Old-Value</option>
+            <p>Hii</p>
+        </select>
+        <!-- <button type="submit"> submit</button> -->
+    </form>
+    <form onsubmit="getData(event)" class="form-list">
+        <select id="status" name="status">
+            <option name="in-progrees"">In progrees</option>
+             <option name=" BackLog">BackLog</option>
+            <option name="done">Done</option>
         </select>
 
-         <button type="submit"> submit</button> 
-        </form>
-    
-    
+        <button type="submit"> submit</button>
+    </form>
 
-    <table border =1 id="selectedData">
-     
+
+
+    <table border=1 id="selectedData">
+
         <tr>
             <td class="title">TaskId</td>
             <td class="title">Date&time</td>
             <td class="title">New value</td>
-           
+
         </tr>
 
     </table>
-    
 
 
-   <script src="functions.js"></script>
-   
+
+    <script src="functions.js"></script>
+
 </body>
+
 </html>
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="cardContainer">
+        <div class="filtersContainer">
+
+            <select id="status" name="status" class="inputSelect">
+                <option name="in-progrees">New-value</option>
+                <option name="BackLog">Old-Value</option>
+
+            </select>
+
+
+
+            <select id="status" name="status" class="inputSelect">
+                <option name="in-progrees"">In progrees</option>
+             <option name=" BackLog">BackLog</option>
+                <option name="done">Done</option>
+            </select>
+
+            <button class="filtersButton" type="submit"> submit</button>
+
+
+        </div>
+        <div class="tableContainer">
+            <table id="selectedData">
+
+                <tr>
+                    <td class="title">Task ID</td>
+                    <td class="title">Date and time</td>
+                    <td class="title">New value</td>
+
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+
+    <script src="functions.js"></script>
+
+</body>
+
+</html> -->
