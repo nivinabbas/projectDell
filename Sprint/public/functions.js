@@ -6,6 +6,12 @@ const elmtTable = document.getElementById("selectedData");
         .then(task => resolve(task))
   });*/
 
+<<<<<<< Updated upstream
+=======
+
+
+
+>>>>>>> Stashed changes
 function getData(event) {
   event.preventDefault();
   elmtTable.innerHTML = `<tr>
