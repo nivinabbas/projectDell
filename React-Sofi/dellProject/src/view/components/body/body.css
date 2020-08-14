@@ -1,0 +1,59 @@
+.chatBarWrapper{
+    display: grid;
+grid-template-columns: 12vw auto auto;
+grid-template-rows: auto auto;
+grid-template-areas: "img name time"
+"img aaa mispar";
+background-color: white;
+border-bottom: 2px solid gray;
+border-left:2px solid gray ;
+border-right: 2px solid gray;
+}
+
+.chatImg{
+    
+    grid-area: img;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.personalName{
+    grid-area: name;
+    font-size: 3;
+}
+
+.chatContent{
+    grid-area: aaa;
+    color: gray;
+}
+
+
+.chatTime{
+    position: relative;
+    grid-area: time;
+   color: gray;
+    left: 75%
+}
+
+.messagesNumber{
+    grid-area: mispar;
+    position: relative;
+    color: white;
+    font-size: auto;
+    text-align: center;
+    left: 40px;
+    width: 18px;
+    height: 18px;
+    background-color: #25D366;
+    border-radius: 50%;
+    left: 80%
+}
+
+
+
+
+
+
+

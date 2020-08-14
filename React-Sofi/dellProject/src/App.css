@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+.mainPage{
+  display: grid;
+  background-color: honeydew;
+  grid-template-columns:5vw 37.5vw 15vw 37.5vw 5vw;
+  grid-template-rows: 15vh 15vh 35vh 35vh;
+
+  grid-template-areas: ". mainHeader  mainHeader mainHeader ."
+  ". . jiraph . ."
+  ". modificationByField . status ." 
+  ". deleted . delays .";
+}
+.top{
+grid-area: mainHeader;
+  }
+
+.modificationByFieldButton{
+    grid-area: modificationByField;
+  }
+.delaysInDelivery{
+  grid-area: delays;
+  }
+.deletedJiraTickets{
+  grid-area: deleted;
+  }
+  .changeOfJiraTicketStatus{
+    grid-area: status;
+  }
+  .jiraphLogo{
+    grid-area:jiraph ;
+    text-align: center;
+   
+  }
+ 
