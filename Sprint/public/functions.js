@@ -6,8 +6,7 @@ const elmtTable = document.getElementById("selectedData");
         .then(task => resolve(task))
   });*/
 
-
-
+  
 
 function getData(event) {
   event.preventDefault();

@@ -63,12 +63,12 @@ const Task = mongoose.model('Task', {
 })
 
 app.get('/getUpdatedByStatus', async (req, res) => {
-  // const { status } = req.query;*/
+  const { status , oldOrNew } = req.query;
    const tasks = await Task.aggregate(
        [{
            $match: {
                "diffItem.updatedFields": { "$elemMatch": { 'fieldName': 'status' }},
-              /*diffItem.updatedFields": { "$elemMatch": { ${oldOrNew} }: status },*/
+             /* "diffItem.updatedFields": { "$elemMatch": ${ oldOrNew }: status },*/
            }
        },
        {
