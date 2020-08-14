@@ -56,21 +56,24 @@ const Task = mongoose.model('Task', {
 });
 
 
-  app.get('/Tickets', (req, res) => {
+ /* app.get('/Tickets', (req, res) => {
     Task.find({} , function(err,tasks){
       res.send(tasks)
   })
-})
+})*/
 
-app.get('/getUpdatedByStatus', async (req, res) => {
-  const { status , oldOrNew } = req.query;
+app.post('/getUpdatedByStatus', async (req, res) => {
+  const { oldnewvalue , statusField } = req.body;
+  console.log(oldnewvalue , statusField)
+  console.log('hi')
    const tasks = await Task.aggregate(
        [{
            $match: {
-               "diffItem.updatedFields": { "$elemMatch": { 'fieldName': 'status' }},
-             /* "diffItem.updatedFields": { "$elemMatch": ${ oldOrNew }: status },*/
+               "diffItem.updatedFields": { "$elemMatch": { 'fieldName': 'status'}},
+               [`diffItem.updatedFields.${oldnewvalue}`]: statusField ,
            }
-       },
+           
+          },
        {
            $group: {
                // label: {`daily`},
