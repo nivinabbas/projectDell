@@ -5,6 +5,39 @@ const elmtTable = document.getElementById("selectedData");
         .then(res => res.json())
         .then(task => resolve(task))
   });*/
+  getAlldata()
+function getAlldata(){
+  elmtTable.innerHTML = 
+  `<tr>
+       <td class="title">TaskId</td>
+       <td class="title">Date&time</td>
+      <td class="title">Old Value</td>
+      <td class="title">New Value</td>
+      </tr>`;
+    fetch('/Tickets')
+       .then(res => res.json())
+       .then((data) => {
+          console.log(data)
+          data.forEach((element) => {
+            console.log(element)
+            console.log(element.jiraItem)
+          
+        let row = elmtTable.insertRow();
+        let cell = row.insertCell();
+        let cell1 = row.insertCell();
+        let cell2 = row.insertCell();
+        let cell3 = row.insertCell();
+        cell.innerHTML = `${element.jiraItem.jiraId}`;
+        cell1.innerHTML = `${new Date(element.diffItem.updateTime).getDay()+1}/${new Date(element.diffItem.updateTime).getMonth()+1}/${new Date(element.diffItem.updateTime).getFullYear()}`;
+        cell2.innerHTML = `${element.diffItem.updatedFields[0].oldValue}`;
+        cell3.innerHTML = `${element.diffItem.updatedFields[0].newValue}`;
+        })
+      
+    });
+  }
+
+
+    
 
 
 
