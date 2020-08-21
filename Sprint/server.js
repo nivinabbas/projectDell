@@ -63,32 +63,40 @@ const Task = mongoose.model('Task', {
 })
 
 app.post('/getUpdatedByStatus', async (req, res) => {
-  const { oldnewvalue , statusField } = req.body;
+  const { oldnewvalue , statusField, startdateToSend , enddateToSend } = req.body;
   console.log(oldnewvalue , statusField)
   console.log('hi')
-   const tasks = await Task.aggregate(
-       [{
-           $match: {
-               "diffItem.updatedFields": { "$elemMatch": { 'fieldName': 'status'}},
-               [`diffItem.updatedFields.${oldnewvalue}`]: statusField ,
-           }
-           
+   const tasks = await Task.aggregate([{
+    $match: {
+      "diffItem.updatedFields.fieldName": "status",
+      "diffItem.updateTime": {$gte:startdateToSend,$lte:enddateToSend},
+      [`diffItem.updatedFields.${oldnewvalue}`]: statusField
+    },
+  },
+  {
+    $group: {
+      _id: {
+        $dateToString: {
+          format: "%Y-%m-%d",
+          date: {
+            $add: [
+              new Date(0),
+              {
+                $multiply: [1, "$diffItem.updateTime"],
+              },
+            ],
           },
-       {
-           $group: {
-               // label: {`daily`},
-               _id:{},
-               tasks: {
-                   $push: {
-                       jiraItem: "$jiraItem",
-                       qcItem: "$qcItem",
-                       diffItem: "$diffItem"
-                   }
-               }
-           }
-       },
-       ]
-   )
+        },
+      },
+      tasks: {
+        $push: "$$ROOT"
+      },
+      numOfTasks: {
+        $sum: 1
+      }
+    },
+  },
+  ]);
    console.log(tasks)
    res.send(tasks)
 } )
@@ -96,3 +104,34 @@ app.post('/getUpdatedByStatus', async (req, res) => {
   app.listen(3000 , ()=> {
     console.log("Port is running in 3000")
 })
+
+/*Task.aggregate([{
+  $match: {
+    "diffItem.updatedFields.fieldName": "status",
+    [`diffItem.updatedFields.${oldOrNew}`]: status
+  },
+},
+{
+  $group: {
+    _id: {
+      $dateToString: {
+        format: "%Y-%m-%d",
+        date: {
+          $add: [
+            new Date(0),
+            {
+              $multiply: [1000, "$diffItem.updateTime"],
+            },
+          ],
+        },
+      },
+    },
+    tasks: {
+      $push: "$$ROOT"
+    },
+    numOfTasks: {
+      $sum: 1
+    }
+  },
+},
+]);*/

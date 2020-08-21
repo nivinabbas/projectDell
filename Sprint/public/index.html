@@ -15,7 +15,7 @@
             <div class="cardBody">
 
                 <form onsubmit="getData(event)" class="filtersContainer">
-                    <select id="status" name="oldOrnew" class="inputSelect">
+                    <select  id="status" name="oldOrnew" class="inputSelect">
                         <option value="none" selected disabled hidden> 
                             Old or New:
                         </option> 
@@ -31,6 +31,8 @@
                         <option name=" Backlog">Backlog</option>
                         <option name="Done">Done</option>
                     </select>
+                    <input type="date" class="inputSelect" name="startDate">
+                    <input type="date" class="inputSelect" name="endDate">
                       <button class="filtersButton" type="submit"> submit</button> 
                 </form>
                 <div class="tableContainer">
