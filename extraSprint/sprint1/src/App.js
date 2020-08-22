@@ -16,7 +16,7 @@ function App() {
             </Route>
           </Link>
           <Link to="/modification">
-            <Route>
+            <Route exact path="/">
               <ModificationByField />
             </Route>
           </Link>
