@@ -66,7 +66,7 @@ app.post("/getUpdatedByStatus", async (req, res) => {
       $match: {
         "diffItem.updatedFields.fieldName": "status",
         "diffItem.updateTime": { $gte: startdateToSend, $lte: enddateToSend },
-        [`diffItem.updatedFields.${oldnewvalue}`]: statusField,
+        [`diffItem.updatedFields.${oldnewvalue}`]: { $in: [...statusField] },
       },
     },
     {

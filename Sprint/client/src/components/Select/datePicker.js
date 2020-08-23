@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 import { DateRange } from "react-date-range";
-import { formatDate } from "../../helpers/utils";
-const DatePicker = () => {
+import { formatDate, prepareDateForRequest } from "../../helpers/utils";
+const DatePicker = ({ onDateChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [state, setState] = useState([
     {
       startDate: new Date(),
-      endDate: null,
+      endDate: new Date(),
       key: "selection",
     },
   ]);
@@ -22,7 +22,18 @@ const DatePicker = () => {
       {isOpen && (
         <DateRange
           editableDateInputs={true}
-          onChange={(item) => setState([item.selection])}
+          onChange={(item) => {
+            setState([item.selection]);
+            const { startDate, endDate } = item.selection;
+            onDateChange({
+              startdateToSend: new Date(
+                ...prepareDateForRequest(startDate)
+              ).getTime(),
+              enddateToSend: new Date(
+                ...prepareDateForRequest(endDate)
+              ).getTime(),
+            });
+          }}
           moveRangeOnFirstSelection={false}
           ranges={state}
         />
